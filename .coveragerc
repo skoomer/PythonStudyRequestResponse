@@ -1,0 +1,11 @@
+[run]
+
+omit = /myvenv/,
+        *myvenv*,
+        *config*,
+        *__init__.py*,
+        *migration*,
+        *test*
+[report]
+fail_under = 95
+precision = 2
