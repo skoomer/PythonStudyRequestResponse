@@ -22,3 +22,4 @@ fields.py
 create_table.py
 connect_db.py
 tasks.txt
+.vscode
