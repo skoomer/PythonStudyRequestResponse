@@ -29,6 +29,7 @@ disable = missing-docstring,
           W0404,
           W0621,
           R0401,
-          W0622
+          W0622,
+          R1732
           
 max-line-length=120
