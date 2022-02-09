@@ -12,6 +12,13 @@ class TestRequests(TestCase):
         self.parser = ParserExchange()
         self.url = "https://openexchangerates.org/api/latest.json/"
 
+    def test_requests_status_code_200(self):
+        self.assertEqual(self.parser.url_request.status_code, 200)
+
+    def test_requests_status_code_403(self):
+        self.parser.url_request = requests.get(self.url)
+        self.assertEqual(self.parser.url_request.status_code, 403)
+
     def test_catch_HTTPError(self):
         self.parser.url_request.raise_for_status = mock.Mock(requests.get, side_effect=HTTPError)
 
