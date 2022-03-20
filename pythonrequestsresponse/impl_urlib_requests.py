@@ -39,9 +39,8 @@ class ParserExchange():
         self.response = urllib.request.urlopen
         logger.info((self.url_request, self.url_request.get_method()))
 
-    def catch_network_errors(self):
+    def valid_response(self):
         try:
-
             self.response(self.url_request)
 
         except urllib.error.URLError as e:
@@ -50,6 +49,7 @@ class ParserExchange():
             if hasattr(e, 'reason'):
                 print('We failed to reach a server.')
                 print('Reason: ', e.reason)
+
             elif hasattr(e, 'code'):
                 print('The server couldn\'t fulfill the request.')
                 print('Error code: ', e.code)
@@ -60,7 +60,7 @@ class ParserExchange():
     def save_currency_to_db(self):
 
         try:
-            if self.catch_network_errors() is True:
+            if self.valid_response() is True:
                 data = json.load(self.response(self.url_request))
                 for key, value in data.items():
                     if key == 'base':
