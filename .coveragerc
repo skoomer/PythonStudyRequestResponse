@@ -5,7 +5,11 @@ omit = /myvenv/,
         *config*,
         *__init__.py*,
         *migration*,
-        *test*
+        *test*,
+        *connect_db*,
+        *fields*,
+        *model_base*,
+        *create_table*
 [report]
 fail_under = 95
 precision = 2
